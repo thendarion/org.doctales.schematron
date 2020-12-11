@@ -32,7 +32,6 @@
         name="schematron.processing.engine"
         value="pure"
     />
-    <basename unless:set="dita.input.filename" file="${args.input}" property="dita.input.filename" suffix=".ditamap"/>
     <property name="schematron.logfile"
         value="${output.dir}/${dita.input.filename}.schematron.log"
     />
