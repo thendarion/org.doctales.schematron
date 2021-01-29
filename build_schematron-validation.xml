@@ -36,7 +36,7 @@
         value="${output.dir}/${dita.input.filename}.schematron.log"
     />
     
-    <target name="schematron-validation">
+    <target name="schematron-validation" if:true="${schematron.processing.enabled}">
         <condition property="schematron-validation-active">
             <or>
                 <isset property="schematron.map.validation.files"/>

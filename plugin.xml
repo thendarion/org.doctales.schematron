@@ -5,7 +5,9 @@
   See the accompanying LICENSE file for applicable license.
 -->
 <plugin id="org.doctales.schematron">
-  
+
+  <require plugin="org.dita.base"/>
+    
   <!-- REMINDER: To update ph-schematron, you also need to update build_taskdef_ph-schematron.xml -->
   <feature extension="dita.conductor.lib.import" file="lib/istack-commons-runtime-2.21.jar"/>
   <feature extension="dita.conductor.lib.import" file="lib/javax.activation-api-1.2.0.jar"/>
@@ -38,7 +40,11 @@
   <feature extension="dita.conductor.target.relative" file="build.xml"/>
   <feature extension="depend.preprocess.post" value="schematron-validation"/>
   
-  <transtype name="base" abstract="true" desc="Common">
+  <transtype name="base" extends="base" abstract="true" desc="Common">
+    <param name="schematron.processing.enabled" desc="Enable or disable validation" type="enum">
+      <val default="true">true</val>
+      <val>false</val>
+    </param>
     <param name="schematron.processing.engine" desc="Engine used to validate DITA maps and topics" type="enum">
       <val default="true" desc="Schematron engine">schematron</val>
       <val desc="XSLT engine">xslt</val>
